@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>我的导航</title>
+    <style>
+        kbd{
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 
 <body>
@@ -63,9 +68,17 @@
         // var main = document.getElementById('main');
         // main.appendChild(div);
         index = 0;
-        while(index<key['length']){
-            x = document.createElement('div');
-            main.appendChild(x);
+        while (index < keys['length']) {
+            mdiv = document.createElement('div');
+            main.appendChild(mdiv);
+            row = keys[index];
+            index2 = 0;
+            while (index2 < row.length) {
+                kbd = document.createElement('kbd');
+                kbd.textContent = row[index2];
+                mdiv.appendChild(kbd);
+                index2++
+            }
             index++;
         }
     </script>
