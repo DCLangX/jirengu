@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的导航</title>
+</head>
+
+<body>
+    <main>
+        <div id="main">
+            <!-- <kbd>q</kbd>
+            <kbd>w</kbd>
+            <kbd>e</kbd>
+            <kbd>r</kbd>
+            <kbd>t</kbd>
+            <kbd>y</kbd>
+            <kbd>u</kbd>
+            <kbd>i</kbd>
+            <kbd>o</kbd>
+            <kbd>p</kbd>
+        </div>
+        <div>
+            <kbd>a</kbd>
+            <kbd>s</kbd>
+            <kbd>d</kbd>
+            <kbd>f</kbd>
+            <kbd>g</kbd>
+            <kbd>h</kbd>
+            <kbd>j</kbd>
+            <kbd>k</kbd>
+            <kbd>l</kbd>
+        </div>
+        <div>
+            <kdb>z</kdb>
+            <kdb>x</kdb>
+            <kdb>c</kdb>
+            <kdb>v</kdb>
+            <kdb>b</kdb>
+            <kdb>n</kdb>
+            <kdb>m</kdb> -->
+        </div>
+    </main>
+    <script>
+        var keys = {
+            '0': ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+            '1': ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+            '2': ['z', 'x', 'c', 'v', 'b', 'n', 'm'],
+            'length': 3
+        }
+        var hash = {
+            q: 'qq.com',
+            w: 'weibo',
+            r: 'renren.com',
+            t: 'tianya.com',
+            y: 'yy.com',
+            u: 'uc.com',
+            m: 'microsoft.com'
+        }
+        // var div = document.createElement('div');
+        // var main = document.getElementById('main');
+        // main.appendChild(div);
+        index = 0;
+        while(index<key['length']){
+            x = document.createElement('div');
+            main.appendChild(x);
+            index++;
+        }
+    </script>
+</body>
+
+</html>
