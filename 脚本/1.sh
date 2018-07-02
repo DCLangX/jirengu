@@ -6,7 +6,6 @@ else
     cd $1
     mkdir css js
     touch index.html css/style.css js/main.js
-    echo   
     exit
 fi
 echo "<!DOCTYPE>" > index.html
