@@ -22,7 +22,9 @@ a {
     float: right;
 }
 
-.topNavBar {}
+.topNavBar {
+    padding: 10px 3px;
+}
 
 .topNavBar .logo {
     font-family: "Hiragino Kaku Gothic Std";
