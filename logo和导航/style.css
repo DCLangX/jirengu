@@ -1,5 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 body {
-    background: black;
+    
 }
 
 a {
@@ -23,7 +27,11 @@ a {
 }
 
 .topNavBar {
-    padding: 10px 3px;
+    padding: 10px 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    position: fixed;
+    box-shadow: 0px 2px 5px black;
 }
 
 .topNavBar .logo {
@@ -71,4 +79,8 @@ a {
 
 .topNavBar nav ul>li>a:hover {
     border-bottom-color: #DC6465;
+}
+
+main{
+    padding-top: 60px;
 }
