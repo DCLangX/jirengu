@@ -1,0 +1,368 @@
+body {
+    background: #EFEFEF;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+ol, ul {
+    list-style: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+hr {
+    border: none;
+    height: 0;
+    border-top: 1px solid #DEDEDE;
+}
+.loading {
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+.loading::before,
+.loading::after {
+    content: '';
+    position: absolute;
+    background: #000;
+    border-radius: 50%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    animation: s 1.5s linear infinite;
+}
+.loading::after {
+    animation-delay: 0.75s;
+}
+@keyframes s {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0.8;
+    }
+    100% {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+}
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+[data-x]{
+    transform: translateY(0);
+    transition: all 0.3s;
+}
+[data-x].offset{
+    transform: translateY(50px);
+    opacity: 0;
+}
+.swiper-container {
+    width: 940px;
+    height: 470px;
+}
+.site-welcome{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #EFEFEF;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    z-index: 1;
+}
+.site-welcome.active{
+    display: flex;
+}
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.topNavBar-inner {
+    padding: 0 16px;
+}
+.topNavBar {
+    padding: 24px 0;
+    position: fixed;
+    width: 100%;
+    transition: all 0.5s;
+    color: #CCCED1;
+}
+.topNavBar.sticky{
+    background: white;
+    padding: 12px 0;
+    color: #595F6A;
+    z-index: 1;
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.5);
+}
+.topNavBar .logo {
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 4px;
+}
+.topNavBar .logo .rs {
+    color: #E8676B;
+    margin-right: 2px;
+}
+.topNavBar .logo .card {
+    color: #9A9DA2;
+}
+.topNavBar nav {
+    float: right;
+    padding-top: 3px;
+    padding-bottom: 2px;
+}
+.topNavBar nav > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.topNavBar nav > ul > li {
+    float: left;
+    margin-left: 17px;
+    margin-right: 17px;
+}
+.topNavBar nav > ul > li > a {
+    font-size: 12px;
+    color: inherit;
+    padding: 7px 0;
+    border-bottom: solid 3px transparent;
+    border-top: solid 3px transparent;
+    font-weight: bold;
+    display: block;
+    position: relative;
+}
+.topNavBar nav > ul > li.highlight > a::after,
+.topNavBar nav > ul > li > a:hover::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #E8676B;
+    margin-top: 7px;
+    animation: slide 0.3s;
+}
+@keyframes slide{
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 100%;
+    }
+}
+.banner {
+    background: url("./img/rs-cover.jpg");
+    height: 515px;
+    background-size: cover;
+    background-position: center center;
+}
+.banner .mask {
+    height: 515px;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+body > main {
+    margin-top: -345px;
+}
+.userCard {
+    background: white;
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
+}
+.userCard .pictureAndtext {
+    padding: 55px 50px 40px;
+}
+.userCard .picture {
+    float: left;
+}
+.userCard .text {
+    float: left;
+    margin-left: 65px;
+    width: 470px;
+}
+.userCard .text h1 {
+    margin-bottom: 8px;
+}
+.userCard .text hr {
+    margin: 20px 0;
+}
+.userCard .text .welcome {
+    display: inline-block;
+    background: #E8676B;
+    color: white;
+    padding: 4px 13px;
+    line-height: 22px;
+    position: relative;
+    margin-bottom: 26px;
+}
+.userCard .text .welcome .triangle {
+    display: block;
+    border: 8px solid transparent;
+    height: 0;
+    border-left-color: #E8676B;
+    border-top-width: 0;
+    position: absolute;
+    top: 100%;
+    left: 6px;
+}
+.userCard dl dt,
+.userCard dl dd {
+    float: left;
+    padding: 6px 0;
+}
+.userCard dl dt {
+    width: 30%;
+    font-weight: bold;
+}
+.userCard dl dd {
+    width: 70%;
+    color: #9da0a7;
+}
+.userCard > footer.media {
+    background-color: #E8676B;
+    text-align: center;
+}
+.userCard > footer.media a {
+    display: inline-block;
+    border-radius: 50%;
+    line-height: 25px;
+    width: 45px;
+    padding: 10px 0;
+    margin: 20px 16px;
+    transition: all 0.2s;
+}
+.userCard > footer.media a:hover {
+    background: #D05C60;
+}
+.userCard > footer svg {
+    width: 25px;
+    height: 25px;
+    fill: white;
+    vertical-align: top;
+}
+ /*
+body > main .downloadResume {
+    border: 1px solid #CDCFD1;
+    font-size: 15px;
+    line-height: 1.1;
+    padding: 21px 55px;
+    display: inline-block;
+    background: #EFEFEF;
+    border-radius: 2px;
+    color: #464D59;
+    font-weight: bold;
+    margin: 36px 0 30px;
+    transition: box-shadow 0.3s;
+ }
+
+.download-wrapper {
+    text-align: center;
+}
+body > main .downloadResume:hover {
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+}
+.selfIntroduction {
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    line-height: 2;
+    font-family: 楷体;
+}
+section.skills,
+section.message,
+section.portfolio {
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 75px;
+}
+section.skills > h2,
+section.message > h2,
+section.portfolio > h2 {
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+}
+section.skills h3 {
+    font-size: 14px;
+    line-height: 1.1;
+    padding-right: 40px;
+}
+section.skills > ol {
+    background: white;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
+    padding: 44px 50px 10px;
+    margin-top: 32px;
+}
+section.skills > ol > li {
+    float: left;
+    width: 48%;
+}
+section.skills > ol > li:nth-child(even) {
+    float: right;
+}
+section.skills .progressBar {
+    height: 5px;
+    background: #FAE0E0;
+    border-radius: 2px;
+    margin: 6px 0 40px;
+    overflow: hidden;
+}
+section.skills .progress {
+    height: 100%;
+    width: 50%;
+    background: #E8676B;
+    border-radius: 2px;
+    transition: all 1s;
+}
+section.skills.offset .progress {
+    transform: translateX(-100%);
+}
+section.portfolio {
+    text-align: center;
+    margin-bottom: 100px;
+}
+section.portfolio .swiper-container{
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+section.portfolio h2 {
+    margin-bottom: 32px;
+}
+section.portfolio .swiper-button-prev,
+section.portfolio .swiper-button-next{
+    background-color: rgba(0,0,0,0.6);
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+section.message > form{
+    padding:44px 0;
+    text-align: center;
+}
+
+section.message > ol > li{
+    padding: 16px;
+    margin: 10px auto;
+    border-top: solid 2px #ddd;
+} */
