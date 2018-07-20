@@ -1,25 +1,62 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: Verdana, Geneva, sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+body{
+    background-color: #efefef;
+}
 nav {
     position: fixed;
     width: 100%;
     box-sizing: border-box;
-    padding: 30px 100px;
-    background-color: red;
+    padding: 1rem 3rem;
+    /* background-color: rgba(255, 251, 0, 0.534); */
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
-nav>.logo{
+
+nav>.logo {
     margin-right: auto;
+    font-weight: bolder;
+    font-size: 2rem;
 }
-nav .navbar ul{
+
+nav>.logo span {
+    color: #e8676b;
+}
+
+nav>.logo a {
+    color: #9a9da2;
+}
+
+
+nav .navbar ul {
     display: flex;
     list-style: none;
 }
-nav .navbar ul li{
+
+nav .navbar ul li {
+    font-size: 0.9rem;
     margin-right: 2rem;
+}
+
+nav .navbar ul li a{
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.banner {
+    background: url("../img/rs-cover.jpg");
+    height: 515px;
+    background-size: cover;
+    background-position: center center;
+}
+.banner .mask {
+    height: 515px;
+    background-color: rgba(0, 0, 0, 0.8);
 }
