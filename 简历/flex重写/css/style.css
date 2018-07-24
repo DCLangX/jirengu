@@ -7,9 +7,11 @@
 a {
     text-decoration: none;
 }
-body{
+
+body {
     background-color: #efefef;
 }
+
 nav {
     position: fixed;
     width: 100%;
@@ -24,29 +26,30 @@ nav {
 nav>.logo {
     margin-right: auto;
     font-weight: bolder;
-    font-size: 2rem;
+    font-size: 1.7rem;
 }
 
 nav>.logo span {
     color: #e8676b;
+    font-size: 2rem;
 }
 
 nav>.logo a {
     color: #9a9da2;
 }
 
-
 nav .navbar ul {
     display: flex;
     list-style: none;
+    flex-wrap: wrap;
 }
 
 nav .navbar ul li {
     font-size: 0.9rem;
-    margin-right: 2rem;
+    margin: 0 1rem;
 }
 
-nav .navbar ul li a{
+nav .navbar ul li a {
     color: rgba(255, 255, 255, 0.7);
 }
 
@@ -56,7 +59,213 @@ nav .navbar ul li a{
     background-size: cover;
     background-position: center center;
 }
+
 .banner .mask {
     height: 515px;
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+main {
+    margin: -300px 10px 0;
+    text-align: center;
+}
+
+.name-card {
+    text-align: left;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+    display: inline-block;
+}
+
+.name-card .top {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 40px 35px;
+}
+
+.name-card .top .text {
+    margin-left: 2rem;
+    align-self: flex-end;
+}
+
+.name-card .top span.welcome {
+    background-color: #e8676b;
+    letter-spacing: 0.1rem;
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 7px 12px;
+    position: relative;
+}
+
+.name-card .top span.welcome::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 8px solid #e8676b;
+    border-right: 8px solid transparent;
+    position: absolute;
+    left: 5px;
+    bottom: -8px;
+}
+
+.name-card .top .text {
+    max-width: 500px;
+}
+
+.name-card .top .text h1 {
+    font-size: 36px;
+    line-height: 1.1;
+    color: #3d4451;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    margin-top: 18px;
+    margin-bottom: 5px;
+    vertical-align: middle;
+}
+
+.name-card .top .text h1 span {
+    font-weight: normal;
+    vertical-align: middle;
+    margin-right: 0.2rem;
+}
+
+.name-card .top .text p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: 0.1rem;
+}
+
+.name-card .top .text hr {
+    border-top: 1px solid #DEDEDE;
+    margin: 20px 0;
+}
+
+.name-card .top .text dl {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.name-card .top .text dt {
+    width: 30%;
+    margin-bottom: 13px;
+    color: #333333;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.name-card .top .text dd {
+    width: 70%;
+    margin-bottom: 13px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #9da0a7;
+}
+
+.name-card .bottom {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 30%;
+    background-color: #e8676b;
+    flex-wrap: wrap;
+}
+
+.name-card .bottom svg {
+    width: 25px;
+    height: 25px;
+    padding: 10px;
+    vertical-align: top;
+    cursor: pointer;
+    transition: transition, background-color 0.25s linear 0s;
+    border-radius: 20%;
+}
+
+.name-card .bottom svg:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.section-txt-btn {
+    margin-top: 30px;
+}
+
+.section-txt-btn p {
+    margin-bottom: 25px;
+    word-break:break-all;
+}
+
+.section-txt-btn .btn {
+    display: inline-block;
+    color: #3d4451;
+    border: 1px solid #cbcdcf;
+    background: transparent;
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 130px;
+    padding: 21px 55px;
+    letter-spacing: 0.7em;
+    margin: 5px;
+}
+.btn.donghua{
+    transition: all 0.3s ease-out;
+}
+.btn.donghua:hover {
+    opacity: 0.95;
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+.skill-bar{
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.skill-bar>h2,
+.photo>h2{
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+    text-align: center;
+    margin:50px 0 25px;
+}
+
+.skill-bar .skill-list{
+    padding: 10px 40px;
+    background-color: #fff;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+    display: flex;
+}
+
+.skill-bar .skill-list .left,
+.skill-bar .skill-list .right{
+    margin: 0 10px;
+    width: 50%;
+    text-align: left;
+}
+
+.skill-bar .skill-list ul{
+    list-style: none;
+}
+.skill-bar .skill-list ul div{
+    background-color: #f8e1e1;
+    height: 5px;
+    border-radius: 5px;
+}
+.skill-bar .skill-list li {
+    margin: 30px 0;
+}
+.skill-bar .skill-list li p{
+    font-size: 14px;
+    color: #3d4451;
+    margin-bottom: 5px;
+}
+.skill-bar .skill-list li span{
+    display: block;
+    height: 100%;
+    background-color: #e8676b;
+    border-radius: 5px;
+    
 }
