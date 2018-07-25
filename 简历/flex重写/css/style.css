@@ -12,7 +12,7 @@ body {
     background-color: #efefef;
 }
 
-nav {
+nav.daohang {
     position: fixed;
     width: 100%;
     box-sizing: border-box;
@@ -23,33 +23,33 @@ nav {
     align-items: center;
 }
 
-nav>.logo {
+nav.daohang>.logo {
     margin-right: auto;
     font-weight: bolder;
     font-size: 1.7rem;
 }
 
-nav>.logo span {
+nav.daohang>.logo span {
     color: #e8676b;
     font-size: 2rem;
 }
 
-nav>.logo a {
+nav.daohang>.logo a {
     color: #9a9da2;
 }
 
-nav .navbar ul {
+nav.daohang .navbar ul {
     display: flex;
     list-style: none;
     flex-wrap: wrap;
 }
 
-nav .navbar ul li {
+nav.daohang .navbar ul li {
     font-size: 0.9rem;
     margin: 0 1rem;
 }
 
-nav .navbar ul li a {
+nav.daohang .navbar ul li a {
     color: rgba(255, 255, 255, 0.7);
 }
 
@@ -195,7 +195,7 @@ main {
 
 .section-txt-btn p {
     margin-bottom: 25px;
-    word-break:break-all;
+    word-break: break-all;
 }
 
 .section-txt-btn .btn {
@@ -210,29 +210,32 @@ main {
     letter-spacing: 0.7em;
     margin: 5px;
 }
-.btn.donghua{
+
+.btn.donghua {
     transition: all 0.3s ease-out;
 }
+
 .btn.donghua:hover {
     opacity: 0.95;
     box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 }
-.skill-bar{
+
+.skill-bar {
     max-width: 900px;
     margin: 0 auto;
 }
 
 .skill-bar>h2,
-.photo>h2{
+.photo>h2 {
     color: #3d4451;
     font-size: 34px;
     line-height: 1.2;
     font-weight: 600;
     text-align: center;
-    margin:50px 0 25px;
+    margin: 50px 0 25px;
 }
 
-.skill-bar .skill-list{
+.skill-bar .skill-list {
     padding: 10px 40px;
     background-color: #fff;
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
@@ -240,32 +243,116 @@ main {
 }
 
 .skill-bar .skill-list .left,
-.skill-bar .skill-list .right{
+.skill-bar .skill-list .right {
     margin: 0 10px;
     width: 50%;
     text-align: left;
 }
 
-.skill-bar .skill-list ul{
+.skill-bar .skill-list ul {
     list-style: none;
 }
-.skill-bar .skill-list ul div{
+
+.skill-bar .skill-list ul div {
     background-color: #f8e1e1;
     height: 5px;
     border-radius: 5px;
 }
+
 .skill-bar .skill-list li {
     margin: 30px 0;
 }
-.skill-bar .skill-list li p{
+
+.skill-bar .skill-list li p {
     font-size: 14px;
     color: #3d4451;
     margin-bottom: 5px;
 }
-.skill-bar .skill-list li span{
+
+.skill-bar .skill-list li span {
     display: block;
     height: 100%;
     background-color: #e8676b;
     border-radius: 5px;
-    
+}
+
+div.photo {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+div.photo>nav {
+    text-align: center;
+}
+
+div.photo>nav>ol {
+    list-style: none;
+    margin: 0 auto;
+    display: flex;
+}
+
+div.photo>nav>ol>li {
+    margin-left: 40px;
+    cursor: pointer;
+}
+
+div.photo>nav>ol>li:first-child {
+    margin-left: 0;
+}
+
+div.photo>nav {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 32px;
+}
+
+div.photo>nav .bar {
+    height: 5px;
+    background: white;
+    margin-top: 5px;
+    margin-bottom: 28px;
+    border-radius: 2px;
+}
+
+div.photo>nav .bar-inner {
+    height: 100%;
+    background: #E6686A;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+div.photo>nav .bar.state-1 .bar-inner {
+    margin-left: 0;
+    width: 50px;
+}
+
+div.photo>nav .bar.state-2 .bar-inner {
+    margin-left: 65px;
+    width: 50px;
+}
+
+div.photo>nav .bar.state-3 .bar-inner {
+    margin-left: 140px;
+    width: 96px;
+}
+
+div.photo .works {
+    position: relative;
+    margin: 0 30px;
+}
+
+div.photo .works {
+    display: flex;
+    justify-content: center;
+}
+
+div.photo .works .small {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.photo .works .small,
+div.photo .works .big {
+    margin: 0 10px;
 }
