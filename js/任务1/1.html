@@ -7,8 +7,103 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>我的导航</title>
     <style>
-        kbd{
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: Verdana, Geneva, sans-serif;
+        }
+
+        body {
+            background-color: #414550;
+        }
+
+        main {
+            text-align: center;
+        }
+
+        #main {
+            display: inline-block;
+        }
+
+        kbd {
+            margin: 12px;
+            width: 42px;
+            height: 48px;
+            line-height: 48px;
+            text-align: center;
+            color: white;
+            border-radius: 5px;
+            display: inline-block;
             text-transform: uppercase;
+            position: relative;
+        }
+
+        kbd>button {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            font-size: 10px;
+            display: none;
+            border: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 2px;
+            border-radius: 20%;
+            cursor: pointer;
+        }
+
+        kbd:hover>button {
+            display: block;
+        }
+
+        kbd>img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 15px;
+            height: 15px;
+        }
+
+        kbd::before {
+            width: 64px;
+            height: 64px;
+            content: "";
+            display: block;
+            position: absolute;
+            border-radius: 5px;
+            margin-left: -25%;
+            margin-top: -3px;
+            z-index: -1;
+        }
+
+        #main div:nth-child(1) kbd {
+            background-color: #9db1bc;
+            border: 1px solid #b2c3cb;
+        }
+
+        #main div:nth-child(1) kbd::before {
+            background-color: #7f9098;
+        }
+
+        #main div:nth-child(2) kbd {
+            left: -10px;
+            background-color: #b4c2ca;
+            border: 1px solid #c7d3da;
+        }
+
+        #main div:nth-child(2) kbd::before {
+            background-color: #94a0a7;
+        }
+
+        #main div:nth-child(3) kbd {
+            left: -45px;
+            background-color: #f2f4f5;
+            border: 1px solid #eeeff0;
+            color: #bac9d1;
+        }
+
+        #main div:nth-child(3) kbd::before {
+            background-color: #c4c6c7;
         }
     </style>
 </head>
@@ -57,29 +152,62 @@
         }
         var hash = {
             q: 'qq.com',
-            w: 'weibo',
+            w: 'weibo.com',
             r: 'renren.com',
             t: 'tianya.com',
             y: 'yy.com',
             u: 'uc.com',
             m: 'microsoft.com'
         }
-        // var div = document.createElement('div');
-        // var main = document.getElementById('main');
-        // main.appendChild(div);
-        index = 0;
+        //从localStorage取出zzz
+        var hashInLocalStorage = getFromLocalStorage('zzz');
+        if (hashInLocalStorage) {
+            hash = hashInLocalStorage;
+        }
+        //获取localStorage值
+        var getFromLocalStorage = function(name){
+            return JSON.parse(localStorage.getItem('name') || 'null');
+        }
+        var index = 0;
         while (index < keys['length']) {
-            mdiv = document.createElement('div');
+            var mdiv = document.createElement('div');
+            var main = document.getElementById('main');
             main.appendChild(mdiv);
-            row = keys[index];
-            index2 = 0;
+            var row = keys[index];
+            var index2 = 0;
             while (index2 < row.length) {
                 kbd = document.createElement('kbd');
                 kbd.textContent = row[index2];
+                // if (hash[row[index2]]) {
+                var img = document.createElement('img');
+                img.src = 'http://' + hash[row[index2]] + '/favicon.ico';
+                // }
+                kbd.appendChild(img);
+                img.onerror = function (e) {
+                    e.target.src = 'kong.png';
+                }
+                button = document.createElement('button');
+                button.textContent = '编辑';
+                button.dataset.key = row[index2];
+                button.onclick = function (e) {
+                    var usersite = prompt('给我一个网址');
+                    var button2 = e.target;
+                    hash[button2.dataset.key] = usersite;
+                    localStorage.setItem('zzz', JSON.stringify(hash));
+                    console.log(button2.nextSbiling);
+                }
+                kbd.appendChild(button);
                 mdiv.appendChild(kbd);
                 index2++
             }
             index++;
+        }
+        document.onkeypress = function (e) {
+            var website = hash[e.key];
+            if (website) {
+                // location.href = 'http://' + website;
+                window.open('http://' + website, '_blank');
+            }
         }
     </script>
 </body>
