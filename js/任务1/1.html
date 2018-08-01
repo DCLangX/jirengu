@@ -159,23 +159,22 @@
             u: 'uc.com',
             m: 'microsoft.com'
         }
+        //获取localStorage值
+        var getFromLocalStorage = function(name){
+            return JSON.parse(localStorage.getItem(name) || 'null');
+        }
         //从localStorage取出zzz
         var hashInLocalStorage = getFromLocalStorage('zzz');
         if (hashInLocalStorage) {
             hash = hashInLocalStorage;
         }
-        //获取localStorage值
-        var getFromLocalStorage = function(name){
-            return JSON.parse(localStorage.getItem('name') || 'null');
-        }
-        var index = 0;
-        while (index < keys['length']) {
+        for (var index = 0; index < keys['length']; index++) {
             var mdiv = document.createElement('div');
             var main = document.getElementById('main');
             main.appendChild(mdiv);
             var row = keys[index];
-            var index2 = 0;
-            while (index2 < row.length) {
+            
+            for (var index2 = 0; index2 < row.length; index2++) {
                 kbd = document.createElement('kbd');
                 kbd.textContent = row[index2];
                 // if (hash[row[index2]]) {
@@ -198,10 +197,10 @@
                 }
                 kbd.appendChild(button);
                 mdiv.appendChild(kbd);
-                index2++
+                
             }
-            index++;
         }
+
         document.onkeypress = function (e) {
             var website = hash[e.key];
             if (website) {
