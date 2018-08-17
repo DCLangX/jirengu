@@ -10,4 +10,6 @@ portfolio3.onclick = function () {
 
 
 var loading = document.querySelector('.loading');
+setTimeout(function(){
 loading.classList.add('none');
+},1000);
