@@ -13,3 +13,11 @@ var loading = document.querySelector('.loading');
 setTimeout(function(){
 loading.classList.add('none');
 },1000);
+var nav = document.querySelector('.daohang');
+window.onscroll = function(){
+    if (window.scrollY > 10) {
+        nav.classList.add('move');
+    } else {
+        nav.classList.remove('move');
+    }
+}
