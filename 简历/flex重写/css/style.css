@@ -52,17 +52,67 @@ nav.daohang .navbar ul {
     flex-wrap: wrap;
 }
 
-nav.daohang .navbar ul li {
+nav.daohang .navbar>ul>li {
     font-size: 0.9rem;
-    margin: 0 1rem;
+    margin: 0.5rem 1rem 0;
+    position: relative;
 }
 
-nav.daohang .navbar ul li a {
+nav.daohang .navbar>ul>li>a {
     color: rgba(255, 255, 255, 0.7);
     transition: all 1s ease-in-out;
 }
 nav.daohang.move .navbar ul li a {
     color: black;
+}
+
+nav.daohang .navbar>ul>li div.line{
+    margin-top: 5px;
+    width: 0;
+    height: 3px;
+    background-color: #e8676b;
+    transition: all 0.2s ease-in;
+}
+
+nav.daohang .navbar>ul>li:hover a div.line{
+    width: 100%;
+}
+
+nav.daohang .navbar ul.erji{
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+    padding: 0.5rem 0;
+    position: absolute;
+    top: 69%;
+    left: -50%;
+    background-color: white;
+    margin: 0.5rem 0;
+    display: none;
+}
+
+nav.daohang .navbar ul.erji a{
+    display: inline-block;
+    color: black;
+    white-space: nowrap;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+}
+
+nav.daohang .navbar>ul>li:hover>ul.erji{
+    display: flex;
+    animation: erji 0.3s forwards;
+}
+
+@keyframes erji{
+    0%{
+        left: -50%;
+        opacity: 0;
+    }
+    100% {
+     left: 0;
+     opacity: 1;
+    }
 }
 
 .banner {
