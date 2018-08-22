@@ -42,11 +42,10 @@ for (let i = 0; i < daoHangList.length; i++) {
         let time = Math.abs(jumpY - nowY) ;
         console.log(time);
         let tween = new TWEEN.Tween(coords) // 创建一个新的tween用来改变 'coords'
-            .to({ y: jumpY }, time) // 在1s内移动至 (300, 200)
+            .to({ y: jumpY - 100 }, time) // 在times内移动至jumpy
             .easing(TWEEN.Easing.Cubic.Out) // 使用缓动功能使的动画更加平滑
             .onUpdate(function () { // 在 tween.js 更新 'coords' 后调用
                 window.scrollTo(0,coords.y);
-                // console.log(coords.y);
             })
             .start(); // 立即开始 tween
     };
