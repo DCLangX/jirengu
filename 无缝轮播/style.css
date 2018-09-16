@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.main {
+    overflow: hidden;
+    width: 720px;
+    height: 405px;
+    margin: 50px auto;
+}
+
+.main>.img {
+    display: flex;
+    position: relative;
+}
+
+.main>.img>img {
+    position: absolute;
+    width: 100%;
+    transition: 1s all;
+}
+
+.main>.img>img.left {
+    transform: translateX(-100%);
+    z-index: 1;
+}
+
+.main>.img>img.middle {
+    transform: translateX(0);
+    z-index: 1;
+}
+
+.main>.img>img.right {
+    transform: translateX(100%);
+}
