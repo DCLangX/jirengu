@@ -8,3 +8,6 @@
     border: 1px solid brown;
     background-color: rgba(235, 169, 82, 0.5);
 }
+#wrapper{
+    display: inline;
+}
