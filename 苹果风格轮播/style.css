@@ -1,0 +1,59 @@
+* {
+    padding: 0;
+    margin: 0;
+    /* outline: 1px solid red; */
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+}
+
+.main {
+    display: inline-block;
+    margin-top: 50px;
+    box-shadow: 0 0 3px #AAAAAA;
+    border-bottom-right-radius: 4px;
+    border: 1px solid white;
+}
+
+.red {
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 1) 0%, #999999 100%);
+    box-shadow: inset 3px 0 1px #a1a1a1, inset -3px 0 1px #a1a1a1;
+}
+
+.images {
+    display: flex;
+    align-items: flex-start;
+    transition: all 0.5s;
+}
+
+.images>img {
+    vertical-align: top;
+}
+
+.window {
+    width: 920px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+#buttons {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-top: 1px solid #aaaaaa61;
+}
+
+#buttons span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+    color: cornflowerblue;
+    width: 60px;
+    height: 45px;
+
+    position: relative;
+}
