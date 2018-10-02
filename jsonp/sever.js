@@ -40,7 +40,7 @@ var server = http.createServer(function(request, response){
     response.setHeader('Content-Type','application/javascript')
     response.statusCode = 200
     response.write(`
-    num.innerText = ${newNum}
+    ${query.callback}.call(undefined,'success')
     `)
     response.end()
   }
