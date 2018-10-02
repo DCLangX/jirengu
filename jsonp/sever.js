@@ -33,11 +33,15 @@ var server = http.createServer(function(request, response){
     response.setHeader('Content-Type','application/javascript')
     response.write(string)
     response.end()
-  }else if(path === '/pay' && method === 'POST'){
+  }else if(path === '/pay'){
     var num = fs.readFileSync('./db','utf-8')
     var newNum = num - 1
     fs.writeFileSync('./db',newNum)
-    response.write('success')
+    response.setHeader('Content-Type','application/javascript')
+    response.statusCode = 200
+    response.write(`
+    num.innerText = ${newNum}
+    `)
     response.end()
   }
   else{
