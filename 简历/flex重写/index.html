@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="https://at.alicdn.com/t/font_759678_wd8pjpd7qk.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/css/swiper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/js/swiper.min.js"></script>
     <title>高路遥的简历</title>
     <style type="text/css">
         .icon {
@@ -31,9 +33,11 @@
             z-index: 10;
             background-color: azure;
         }
-        .loading.none{
+
+        .loading.none {
             display: none;
         }
+
         .loading::before,
         .loading::after {
             content: '';
@@ -57,6 +61,7 @@
                 height: 0;
                 opacity: 1;
             }
+
             100% {
                 width: 100px;
                 height: 100px;
@@ -265,9 +270,24 @@
                     <img src="./img/3.jpg" alt="作品3">
                 </div>
             </div>
+            <!-- Swiper -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="img/11.jpg" alt="" srcset=""></div>
+                    <div class="swiper-slide"><img src="img/22.jpg" alt="" srcset=""></div>
+                    <div class="swiper-slide"><img src="img/33.jpg" alt="" srcset=""></div>
+                    <div class="swiper-slide"><img src="img/44.jpg" alt="" srcset=""></div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
         </div>
     </main>
-<script src="js/1.js" defer="defer"></script>
+    <script src="js/1.js" defer="defer"></script>
 </body>
 
 </html>
