@@ -17,14 +17,15 @@ AV.init({
 
 var messageForm = document.querySelector('#message');
 messageForm.addEventListener('submit', function (e) {
-    e.preventDefault;
     var content = messageForm.querySelector('input[name=content]').value;
     console.log(content);
     var Message = AV.Object.extend('Message');
     var message = new Message();
+    console.log('chenggong')
     message.save({
         content: content
     }).then(function (object) {
         alert('上传成功!');
     })
+    e.preventDefault();
 })
