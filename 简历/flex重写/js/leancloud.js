@@ -13,7 +13,21 @@ AV.init({
 // }).then(function(object) {
 //   alert('LeanCloud Rocks!');
 // })
-
+var query = new AV.Query('Message');
+query.find().then(function (messages) {
+    var arr = messages.map((items)=>items.attributes);
+    var messagelist = document.querySelector('#messagelist');
+    arr.forEach((element) => {
+        console.log(messagelist)
+        let listItem = document.createElement('li');
+        listItem.innerText = element.content;
+        messagelist.appendChild(listItem);
+    });
+}, function (error) {
+    alert('获取留言失败');
+    console.log(error)
+  // 异常处理
+});
 
 var messageForm = document.querySelector('#message');
 messageForm.addEventListener('submit', function (e) {
