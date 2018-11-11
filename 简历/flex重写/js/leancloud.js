@@ -13,33 +13,38 @@ AV.init({
 // }).then(function(object) {
 //   alert('LeanCloud Rocks!');
 // })
+var messagelist = document.querySelector('#messagelist');
+var addMessageList = function (name,text) {
+    var listItem = document.createElement('li');
+    listItem.innerText = `${name} 发表留言： ${text}`;
+    messagelist.appendChild(listItem);
+}
 var query = new AV.Query('Message');
 query.find().then(function (messages) {
-    var arr = messages.map((items)=>items.attributes);
-    var messagelist = document.querySelector('#messagelist');
+    var arr = messages.map((items) => items.attributes);
     arr.forEach((element) => {
-        console.log(messagelist)
-        let listItem = document.createElement('li');
-        listItem.innerText = element.content;
-        messagelist.appendChild(listItem);
+        addMessageList(element.name,element.content);
     });
 }, function (error) {
     alert('获取留言失败');
     console.log(error)
-  // 异常处理
+    // 异常处理
 });
 
 var messageForm = document.querySelector('#message');
 messageForm.addEventListener('submit', function (e) {
+    e.preventDefault();
     var content = messageForm.querySelector('input[name=content]').value;
-    console.log(content);
+    var name = messageForm.querySelector('input[name=name]').value;
     var Message = AV.Object.extend('Message');
     var message = new Message();
-    console.log('chenggong')
     message.save({
-        content: content
+        content: content,
+        name: name
     }).then(function (object) {
-        alert('上传成功!');
-    })
-    e.preventDefault();
+        alert('留言成功!');
+    });
+    addMessageList(name,content);
+    messageForm.querySelector('input[name=content]').value = '';
+    messageForm.querySelector('input[name=name]').value = '';
 })

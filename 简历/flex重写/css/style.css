@@ -290,7 +290,8 @@ main {
 }
 
 .skill-bar>h2,
-.photo>h2 {
+.photo>h2,
+.maeeage>h2 {
     color: #3d4451;
     font-size: 34px;
     line-height: 1.2;
@@ -342,7 +343,7 @@ main {
 
 div.photo {
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 div.photo>nav {
@@ -451,4 +452,16 @@ div.photo .works .big {
 .swiper-wrapper img {
     width: 100%;
     height: auto;
+}
+
+#messagelist{
+list-style: none;
+}
+
+#messagelist li{
+    width: 50%;
+    min-height: 40px;
+    margin: 0 auto 10px;
+    box-shadow: 0px 0px 5px 0px rgba(111,111,112,0.5);
+    color: #E6686A;
 }
