@@ -14,7 +14,7 @@ AV.init({
 //   alert('LeanCloud Rocks!');
 // })
 var messagelist = document.querySelector('#messagelist');
-var addMessageList = function (name,text) {
+var addMessageList = function (name, text) {
     var listItem = document.createElement('li');
     listItem.innerText = `${name} 发表留言： ${text}`;
     messagelist.appendChild(listItem);
@@ -23,7 +23,7 @@ var query = new AV.Query('Message');
 query.find().then(function (messages) {
     var arr = messages.map((items) => items.attributes);
     arr.forEach((element) => {
-        addMessageList(element.name,element.content);
+        addMessageList(element.name, element.content);
     });
 }, function (error) {
     alert('获取留言失败');
@@ -44,7 +44,7 @@ messageForm.addEventListener('submit', function (e) {
     }).then(function (object) {
         alert('留言成功!');
     });
-    addMessageList(name,content);
+    addMessageList(name, content);
     messageForm.querySelector('input[name=content]').value = '';
     messageForm.querySelector('input[name=name]').value = '';
 })
