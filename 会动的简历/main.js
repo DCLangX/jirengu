@@ -102,12 +102,18 @@ var text2 = `#自我介绍
 #项目展示
 
 1.Canvas画板
+
 2.网站导航页
+
 3.在线简历
 
 #联系方式
 
--QQ xxxxxxxx - Email xxxxxxxx - 手机xxxxxxx
+-QQ xxxxxxxx
+
+- Email xxxxxxxx
+
+- 手机xxxxxxx
 `;
 var writePaper = function (code) {
     var paper = document.querySelector('#paper');
