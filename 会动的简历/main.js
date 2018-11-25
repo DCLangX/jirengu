@@ -83,7 +83,7 @@ var nextText = `
     right: 0;
     width: 50% ;
     height: 100vh;
-    padding: 16px;
+    padding: 5%;
     background: #ccc;
 }
 /*见证奇迹的时刻到了，请看右边 */
@@ -109,7 +109,7 @@ var text2 = `#自我介绍
 
 #联系方式
 
--QQ xxxxxxxx
+- QQ xxxxxxxx
 
 - Email xxxxxxxx
 
@@ -123,7 +123,6 @@ var writePaper = function (code) {
         paper.scrollTop = paper.scrollHeight;
         if (n >= code.length) {
             clearInterval(time2);
-            callback()
         }
         n += 1;
     }, 10);
