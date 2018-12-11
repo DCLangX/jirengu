@@ -47,6 +47,7 @@ body{
 我需要一张白纸
 */
 `;
+var highLiAndShow = function()
 var n = 0;
 var time1 = setInterval(() => {
     firstPre.innerHTML = Prism.highlight(firstText.substring(0, n), Prism.languages.css, 'css');
