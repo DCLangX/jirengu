@@ -63,6 +63,7 @@ body{
 我需要一张白纸
 */
 `;
+
 writeCode('', firstText, () => {
     createPaper(() => {
         writeCode(firstText, nextText,()=>{
