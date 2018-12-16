@@ -1,0 +1,15 @@
+#upArea{
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ddd;
+  border-radius: 10px;
+}
+#uploadBtn{
+  padding: 20px;
+  border: none;
+  box-shadow: 1px;
+  border-radius: 10px;
+}
