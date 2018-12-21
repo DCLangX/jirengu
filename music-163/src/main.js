@@ -1,36 +1,21 @@
-  $.ajax({url: "http://localhost:8888/uptoken", success: function(res){
-    var token = res.uploadToken;
-    var domain = res.domain;
-    var config = {
-      useCdnDomain: true,
-      disableStatisticsReport: false,
-      retryCount: 6,
-      region: qiniu.region.z0
-    };
-    var putExtra = {
-      fname: "",
-      params: {},
-      mimeType: null
-    };
-    $(".nav-box")
-      .find("a")
-      .each(function(index) {
-        $(this).on("click", function(e) {
-          // switch (e.target.name) {
-          //   case "h5":
-              uploadWithSDK(token, putExtra, config, domain);
-            //   break;
-            // case "expand":
-            //   uploadWithOthers(token, putExtra, config, domain);
-            //   break;
-            // case "directForm":
-            //   uploadWithForm(token, putExtra, config);
-            //   break;
-            // default:
-            //   "";
-          // }
-        });
-      });
-    imageControl(domain);
-    uploadWithSDK(token, putExtra, config, domain);
-  }})
+var APP_ID = 'lNlx60YoWkxesz7SK9WXchh5-gzGzoHsz';
+var APP_KEY = '9pYNGt6Tu63trIb7HQ8uibY7';
+
+AV.init({
+    appId: APP_ID,
+    appKey: APP_KEY
+});
+var TestObject = AV.Object.extend('Playlist');
+var testObject = new TestObject();
+// testObject.save({
+//     name: 'test',
+//     cover:'555',
+//     createrId:'test',
+//     description:'test'
+// }).then(function (object) {
+//     alert('LeanCloud Rocks!');
+// })
+
+
+
+
