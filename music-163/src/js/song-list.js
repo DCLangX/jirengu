@@ -27,5 +27,4 @@
         }
     }
     controller.init(view, model)
-    window.app.songList = controller
 }
