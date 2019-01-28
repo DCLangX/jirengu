@@ -1,7 +1,6 @@
 window.app={
     events:{
-        '花里胡哨':[],
-        '乌漆嘛黑':[]
+
     },
     emit:function(){
 
