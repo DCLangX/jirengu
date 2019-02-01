@@ -59,10 +59,9 @@
                         var sourceLink = `${domain}${encodeURIComponent(res.key)}`;
                         //  获取上传成功后的文件的Url
                         console.log(sourceLink)
-                        window.app.newSong.active()
-                        window.app.songForm.reset({
-                            link:sourceLink,
-                            key:res.key
+                        window.eventHub.emit('upload',{
+                            url:sourceLink,
+                            name:res.key
                         })
                     },
                     'Error': function (up, err, errTip) {
@@ -91,7 +90,6 @@
         }
     }
     controller.init(view, model)
-    window.app.uploadSong = controller
 }
 
 
