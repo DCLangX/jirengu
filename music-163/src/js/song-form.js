@@ -51,14 +51,8 @@
             var newSong = new NewSong();
             return newSong.save(data).then((res) => {
                 console.log('LeanCloud写入成功!')
-                let {
-                    id,
-                    attributes
-                } = res
-                Object.assign(this.data, {
-                    id,
-                    ...attributes
-                })
+                let { id, attributes } = res
+                this.data = { id , ...attributes }
             }, (error) => {
                 console.log(error)
             })

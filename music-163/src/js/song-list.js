@@ -3,24 +3,16 @@
         el: '#song_main',
         template: `
         <ul class="song_list">
-            <li>啦啦啦</li>
-            <li>啦啦啦</li>
-            <li>啦啦啦</li>
-            <li>啦啦啦</li>
-            <li>啦啦啦</li>
-            <li>啦啦啦</li>
-            <li>啦啦啦</li>
         </ul>
         `,
         render: function (data) {
+            $(this.el).html(this.template)
             let {songs} =data
             let liList = songs.map((song)=>{
                 let li = $('<li></li>').text(song.name)
                 return li
             })
             $(this.el).find('ul').empty()
-
-            $(this.el).html(this.template)
             liList.map((domLi)=>{
                 $(this.el).find('ul').append(domLi)
             })
