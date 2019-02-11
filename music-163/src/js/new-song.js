@@ -19,9 +19,15 @@
                 console.log('new song 模块得到了data')
                 this.active()
             })
+            window.eventHub.on('select',(data)=>{
+                this.removeActive()
+            })
         },
         active:function(){
             $(this.view.el).addClass('active')
+        },
+        removeActive:function(){
+            $(this.view.el).removeClass('active')
         }
     }
     controller.init(view,model)

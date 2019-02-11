@@ -68,6 +68,10 @@
                 console.log('song form 模块得到了data')
                 this.view.render(data)
             })
+            window.eventHub.on('select',(data)=>{
+                this.model.data = data
+                this.view.render(data)
+            })
         },
         bindEvents: function () {
             $(this.view.el).on('submit', 'form', (e) => {
