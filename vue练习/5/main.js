@@ -46,11 +46,11 @@ var app = new Vue({
         },
         'kkk': {
             data: function () {
-                return {
-                    count: 10
-                }
+                return {}
             },
-            props: ['width'],
+            props: {
+                width: Number
+            },
             template: '<div :style="style">{{ width }}</div>',
             computed: {
                 style: function () {
