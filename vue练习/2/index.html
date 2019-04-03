@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
+<style>
+    .active {
+        border: 1px solid red;
+    }
+</style>
 
 <head>
     <meta charset="UTF-8">
@@ -10,7 +15,7 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" :class="{active:isActive}">
         {{getFullName}}
     </div>
     <script src="main.js"></script>

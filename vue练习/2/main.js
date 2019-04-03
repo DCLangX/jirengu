@@ -3,7 +3,8 @@ let app = new Vue({
     data: {
         firstName:'aa',
         lastName:'ww',
-        fullName:''
+        fullName:'',
+        isActive:true
     },
     computed: {
         getFullName: function () {
