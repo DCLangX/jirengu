@@ -3,15 +3,15 @@ var app = new Vue({
     data: {
         parentMessage: 'Parent',
         items: [{
-                message: 'Foo'
-            },{
-                message: 'Bar'
-            }]
+            message: 'Foo'
+        }, {
+            message: 'Bar'
+        }]
     },
-    methods:{
-        doSomething:function(){
+    methods: {
+        doSomething: function () {
             var tmp = this.items
-            tmp[0].message='ttt'
+            tmp[0].message = 'ttt'
             this.items = tmp
         }
     }
