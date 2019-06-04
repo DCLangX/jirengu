@@ -1,9 +1,17 @@
 <template>
-    <div>
+    <div class="contaniner">
         <div class="loading" v-if="isLoading">
             <div class="lds-hourglass"></div>
         </div>
-        <div>
+        <div v-else>
+            <div class="title">
+                <div class="type-btn">全部</div>
+                <div class="type-btn">精华</div>
+                <div class="type-btn">分享</div>
+                <div class="type-btn">问答</div>
+                <div class="type-btn">招聘</div>
+                <div class="type-btn">客户端测试</div>
+            </div>
             <ul>
                 <li v-for="post in posts" :key="post.id">
                     <img :src="post.author.avatar_url" alt>
@@ -15,7 +23,15 @@
                         <span>{{post.reply_count}}</span>
                         /{{post.visit_count}}
                     </div>
-                    <div class="text">{{post.title}}</div>
+                    <router-link :to="{
+                        name:'post_content',
+                        params:{
+                            id:post.id,
+                            name:post.author.loginname
+                        }
+                        }">
+                        <div class="text">{{post.title}}</div>
+                    </router-link>
                     <div class="right">{{post.last_reply_at | formatDate}}</div>
                 </li>
             </ul>
@@ -55,44 +71,9 @@ export default {
 </script>
 
 <style scoped>
-.loading {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.lds-hourglass {
-    display: inline-block;
-    position: relative;
-    width: 64px;
-    height: 64px;
-}
-.lds-hourglass:after {
-    content: " ";
-    display: block;
-    border-radius: 50%;
-    width: 0;
-    height: 0;
-    margin: 6px;
-    box-sizing: border-box;
-    border: 26px solid #cef;
-    border-color: #cef transparent #cef transparent;
-    animation: lds-hourglass 1.2s infinite;
-}
-@keyframes lds-hourglass {
-    0% {
-        transform: rotate(0);
-        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-    }
-    50% {
-        transform: rotate(900deg);
-        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    }
-    100% {
-        transform: rotate(1800deg);
-    }
+.contaniner {
+    background-color: white;
+    border-radius: 8px;
 }
 ul li {
     padding: 10px 20px;
@@ -129,5 +110,23 @@ ul li img {
     text-overflow: ellipsis;
     font-size: 12px;
     color: #778087;
+}
+.title {
+    display: flex;
+    padding: 10px;
+    background-color: #f6f6f6;
+    font-size: 14px;
+    border-radius: 8px 8px 0 0;
+}
+.title .type-btn {
+    color: #fff;
+    padding: 3px 4px;
+    border-radius: 3px;
+    margin: 0 5px;
+    color: #80bd01;
+}
+.title .type-btn.active {
+    color: white;
+    background-color: #80bd01;
 }
 </style>
