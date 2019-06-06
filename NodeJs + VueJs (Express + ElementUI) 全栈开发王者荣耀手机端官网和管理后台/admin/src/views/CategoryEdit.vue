@@ -38,11 +38,11 @@ export default {
             let res;
             if (this.id) {
                 const res = await this.$http.put(
-                    `categories/${this.id}`,
+                    `rest/categories/${this.id}`,
                     this.ruleForm
                 );
             } else {
-                const res = await this.$http.post("categories", this.ruleForm);
+                const res = await this.$http.post("rest/categories", this.ruleForm);
             }
             this.$router.push("/categories/list");
             this.$message({
@@ -51,11 +51,11 @@ export default {
             });
         },
         async fetch() {
-            const res = await this.$http.get(`categories/${this.id}`);
+            const res = await this.$http.get(`rest/categories/${this.id}`);
             this.ruleForm = res.data;
         },
         async fetchParents() {
-            const res = await this.$http.get(`categories`);
+            const res = await this.$http.get(`rest/categories`);
             this.parents = res.data;
         }
     },
