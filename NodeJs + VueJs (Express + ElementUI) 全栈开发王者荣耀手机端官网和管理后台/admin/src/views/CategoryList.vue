@@ -2,10 +2,10 @@
     <div class="list">
         <h1>分类列表</h1>
         <el-table :data="items">
-            <el-table-column prop="_id" label="ID" width="180"></el-table-column>
-            <el-table-column prop="name" label="分类名称" width="180"></el-table-column>
-            <el-table-column prop="parent.name" label="上级分类" width="180"></el-table-column>
-            <el-table-column fixed="right" label="操作" width="180">
+            <el-table-column prop="_id" label="ID" min-width="180"></el-table-column>
+            <el-table-column prop="name" label="分类名称" min-width="180"></el-table-column>
+            <el-table-column prop="parent.name" label="上级分类" min-width="180"></el-table-column>
+            <el-table-column fixed="right" label="操作" min-width="180">
                 <template slot-scope="scope">
                     <el-button
                         type="text"
