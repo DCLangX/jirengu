@@ -1,7 +1,7 @@
 <template>
     <div class="list">
         <h1>物品列表</h1>
-        <el-table :data="items" fit="true">
+        <el-table :data="items" :fit="true">
             <el-table-column prop="_id" label="ID" min-width="180"></el-table-column>
             <el-table-column prop="name" label="物品名称" min-width="180"></el-table-column>
             <el-table-column prop="icon" label="图标" min-width="180">
