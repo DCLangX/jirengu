@@ -86,7 +86,7 @@
                     >添加技能</el-button>
                     <el-row :gutter="30" type="flex" style="flex-wrap:wrap;">
                         <el-col :span="12" v-for="(item, key) in ruleForm.skills" :key="key">
-                            <el-divider content-position="right">技能{{key}}</el-divider>
+                            <el-divider content-position="right">技能{{key+1}}</el-divider>
                             <el-form-item label="技能名称">
                                 <el-input v-model="item.name"></el-input>
                             </el-form-item>
