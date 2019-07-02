@@ -9,14 +9,23 @@
         >
             <el-form-item label="所属分类">
                 <el-select v-model="ruleForm.categories" placeholder="请选择" multiple>
-                    <el-option v-for="item in categories" :key="item._id" :label="item.name" :value="item._id"></el-option>
+                    <el-option
+                        v-for="item in categories"
+                        :key="item._id"
+                        :label="item.name"
+                        :value="item._id"
+                    ></el-option>
                 </el-select>
             </el-form-item>
             <el-form-item :label="id?'修改文章':'新建文章'">
                 <el-input v-model="ruleForm.title"></el-input>
             </el-form-item>
             <el-form-item label="详情">
-                <vue-editor v-model="ruleForm.body"></vue-editor>
+                <vue-editor
+                    useCustomImageHandler
+                    @imageAdded="handleImageAdded"
+                    v-model="ruleForm.body"
+                ></vue-editor>
             </el-form-item>
             <el-form-item>
                 <el-button type="primary" native-type="submit">保存</el-button>
@@ -29,7 +38,7 @@
 import { VueEditor } from "vue2-editor";
 export default {
     components: {
-      VueEditor
+        VueEditor
     },
     props: {
         id: ""
@@ -37,12 +46,25 @@ export default {
     data() {
         return {
             ruleForm: {
-                categories:[]
+                categories: []
             },
-            categories:[]
+            categories: []
         };
     },
     methods: {
+        async handleImageAdded(file, Editor, cursorLocation, resetUploader) {
+            // An example of using FormData
+            // NOTE: Your key could be different such as:
+            // formData.append('file', file)
+
+            var formData = new FormData();
+            formData.append("file", file);
+            let result = await this.$http.post("/upload", formData);
+            let url = result.data.url; // Get url from response
+            Editor.insertEmbed(cursorLocation, "image", url);
+            resetUploader();
+
+        },
         async submitForm(formName) {
             let res;
             if (this.id) {
@@ -70,7 +92,7 @@ export default {
     },
     created() {
         this.id && this.fetch();
-        this.fetchCategories()
+        this.fetchCategories();
     }
 };
 </script>
