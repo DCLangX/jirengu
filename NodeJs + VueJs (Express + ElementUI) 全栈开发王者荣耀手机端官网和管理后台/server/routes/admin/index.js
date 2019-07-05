@@ -39,9 +39,31 @@ module.exports = app => {
     const upload = multer({
         dest: __dirname + '/../../uploads'
     })
-    app.use('/admin/api/upload',upload.single('file'), async (req, res) => {
+    app.use('/admin/api/upload', upload.single('file'), async (req, res) => {
         const file = req.file
         file.url = `http://localhost:3000/uploads/${file.filename}`
         res.send(file)
+    })
+    app.use('/admin/api/login', async (req, res) => {
+        const {
+            username,
+            password
+        } = req.body
+        const AdminUser = require('../../models/AdminUser')
+        const user = await AdminUser.findOne({
+            username
+        }).select('+password')
+        if (!user) {
+            return res.status(422).send({
+                message: '用户不存在'
+            })
+        }
+        const isValid = require('bcrypt').compareSync(password, user.password)
+        if (!isValid) {
+            return res.status(422).send({
+                message: '密码错误'
+            })
+        }
+        res.send('ok')
     })
 }
