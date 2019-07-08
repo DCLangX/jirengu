@@ -46,11 +46,16 @@ export default {
             // event.preventDefault();
             this.isLogin = true;
             console.log("触发登录", this.form);
-            this.login()
+            this.login();
         },
-        async login(){
-            const res = await this.$http.post('login',this.form)
-            console.log(res.data)
+        async login() {
+            const res = await this.$http.post("login", this.form);
+            localStorage.token = res.data.token;
+            this.$message({
+                message: "登录成功",
+                type: "success"
+            });
+            this.$router.push("/");
         }
     }
 };

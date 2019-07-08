@@ -64,6 +64,12 @@ module.exports = app => {
                 message: '密码错误'
             })
         }
-        res.send('ok')
+        const jwt = require('jsonwebtoken')
+        const token = jwt.sign({
+            id: user._id
+        }, app.get('secret'))
+        res.send({
+            token
+        })
     })
 }
