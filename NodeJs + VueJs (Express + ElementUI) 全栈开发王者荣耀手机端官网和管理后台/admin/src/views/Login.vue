@@ -50,6 +50,7 @@ export default {
         },
         async login() {
             const res = await this.$http.post("login", this.form);
+            this.isLogin = false;
             localStorage.token = res.data.token;
             this.$message({
                 message: "登录成功",
