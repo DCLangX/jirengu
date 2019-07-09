@@ -17,79 +17,81 @@ import AdminUserList from './views/AdminUserList.vue'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes: [
-    {
+  routes: [{
       path: '/login',
       name: 'login',
       component: Login,
+      meta: {
+        isPublic: true
+      }
     },
     {
       path: '/',
       name: 'Main',
       component: Main,
-      children:[{
+      children: [{
         path: '/categories/create',
         component: CategoryEdit,
-      },{
+      }, {
         path: '/categories/list',
         component: CategoryList,
-      },{
+      }, {
         path: '/categories/edit/:id',
         component: CategoryEdit,
-        props:true
-      },{
+        props: true
+      }, {
         path: '/items/create',
         component: ItemEdit,
-      },{
+      }, {
         path: '/items/list',
         component: ItemList,
-      },{
+      }, {
         path: '/items/edit/:id',
         component: ItemEdit,
-        props:true
-      },{
+        props: true
+      }, {
         path: '/hero/create',
         component: HeroEdit,
-      },{
+      }, {
         path: '/hero/list',
         component: HeroList,
-      },{
+      }, {
         path: '/hero/edit/:id',
         component: HeroEdit,
-        props:true
-      },{
+        props: true
+      }, {
         path: '/articles/create',
         component: ArticleEdit,
-      },{
+      }, {
         path: '/articles/list',
         component: ArticleList,
-      },{
+      }, {
         path: '/articles/edit/:id',
         component: ArticleEdit,
-        props:true
-      },{
+        props: true
+      }, {
         path: '/ads/create',
         component: AdEdit,
-      },{
+      }, {
         path: '/ads/list',
         component: AdList,
-      },{
+      }, {
         path: '/ads/edit/:id',
         component: AdEdit,
-        props:true
-      },{
+        props: true
+      }, {
         path: '/admin_users/create',
         component: AdminUserEdit,
-      },{
+      }, {
         path: '/admin_users/list',
         component: AdminUserList,
-      },{
+      }, {
         path: '/admin_users/edit/:id',
         component: AdminUserEdit,
-        props:true
+        props: true
       }]
     },
     {
@@ -98,7 +100,14 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      component: () => import( /* webpackChunkName: "about" */ './views/About.vue')
     }
   ]
 })
+router.beforeEach((to, from, next) => {
+  if (!to.meta.isPublic && !localStorage.token) {
+    return next('/login')
+  }
+  next()
+})
+export default router

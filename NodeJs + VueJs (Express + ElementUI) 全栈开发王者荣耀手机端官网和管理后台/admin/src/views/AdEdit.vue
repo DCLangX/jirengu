@@ -11,22 +11,19 @@
                 <el-input v-model="ruleForm.name"></el-input>
             </el-form-item>
             <el-form-item label="广告图">
-                <el-button
-                    type="primary"
-                    icon="el-icon-plus"
-                    @click="ruleForm.items.push({})"
-                >添加广告图</el-button>
+                <el-button type="primary" icon="el-icon-plus" @click="ruleForm.items.push({})">添加广告图</el-button>
                 <el-row :gutter="30" type="flex" style="flex-wrap:wrap;">
                     <el-col :span="24" v-for="(item, key) in ruleForm.items" :key="key">
                         <el-divider content-position="right">图片{{key+1}}</el-divider>
                         <el-form-item label="图片">
                             <el-upload
                                 class="avatar-uploader"
-                                :action="$http.defaults.baseURL+'/upload'"
+                                :action="uploadUrl"
+                                :headers="getAuthHeaders()"
                                 :show-file-list="false"
                                 :on-success="res =>$set(item,'image',res.url)"
                             >
-                                <img v-if="item.image" :src="item.image" class="avatar">
+                                <img v-if="item.image" :src="item.image" class="avatar" />
                                 <i v-else class="el-icon-plus avatar-uploader-icon"></i>
                             </el-upload>
                         </el-form-item>
