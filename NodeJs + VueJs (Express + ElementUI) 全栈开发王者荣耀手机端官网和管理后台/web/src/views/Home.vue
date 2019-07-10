@@ -38,6 +38,7 @@
                 <span>收起</span>
             </div>
         </div>
+        <i class="iconfont icon-news text-primary"></i>
     </div>
 </template>
 
