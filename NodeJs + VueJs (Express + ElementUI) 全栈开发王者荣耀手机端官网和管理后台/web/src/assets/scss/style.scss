@@ -113,11 +113,23 @@ a {
     padding: 0.2rem 0.6rem;
 }
 
-.nav-item {
-    border-bottom: 2px solid transparent;
-    padding-bottom: 1px;
-    &.active {
-        border-color: #fff;
+// nav
+.nav {
+    .nav-item {
+        border-bottom: 3px solid transparent;
+        padding-bottom: 0.2rem;
+        &.active {
+            color: map-get($colors, "primary");
+            border-bottom-color: map-get($colors, "primary");
+        }
+    }
+    &.nav-inverse {
+        .nav-item {
+            color: map-get($colors, "white");
+            &.active {
+                border-bottom-color: map-get($colors, "white");
+            }
+        }
     }
 }
 

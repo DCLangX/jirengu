@@ -9,7 +9,8 @@ import './assets/iconfont/iconfont.css'
 import './assets/scss/style.scss'
 Vue.use(VueAwesomeSwiper, /* { default global options } */ )
 Vue.config.productionTip = false
-
+import Card from './components/Card.vue'
+Vue.component('m-card', Card)
 new Vue({
   router,
   store,
