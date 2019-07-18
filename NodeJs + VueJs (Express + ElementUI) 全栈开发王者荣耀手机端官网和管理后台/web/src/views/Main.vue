@@ -10,15 +10,15 @@
         </div>
         <div class="bg-primary py-2">
             <div class="nav nav-inverse d-flex jc-around pt-1">
-              <div class="nav-item active">
-                <router-link claas="nav-link" tag="div" to="/">首页</router-link>
-              </div>
-              <div class="nav-item">
-                <router-link claas="nav-link" tag="div" to="/">攻略中学</router-link>
-              </div>
-              <div class="nav-item">
-                <router-link claas="nav-link" tag="div" to="/">赛事中心</router-link>
-              </div>
+                <div class="nav-item active">
+                    <router-link claas="nav-link" tag="div" to="/">首页</router-link>
+                </div>
+                <div class="nav-item">
+                    <router-link claas="nav-link" tag="div" to="/">攻略中学</router-link>
+                </div>
+                <div class="nav-item">
+                    <router-link claas="nav-link" tag="div" to="/">赛事中心</router-link>
+                </div>
             </div>
         </div>
         <router-view></router-view>
@@ -30,6 +30,11 @@ export default {};
 </script>
 
 <style scoped>
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+}
 .topbar img {
     width: 5rem;
 }
