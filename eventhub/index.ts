@@ -33,7 +33,6 @@ class EventHub {
         this.cache[eventName].splice(fnIndex, 1)
       }
     }
-
   }
 }
 
