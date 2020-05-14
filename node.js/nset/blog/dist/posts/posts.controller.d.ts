@@ -3,19 +3,16 @@ declare class CreatePostDto {
     content: string;
 }
 export declare class PostsController {
-    index(): any[];
-    create(body: CreatePostDto): CreatePostDto;
-    detail(id: string): {
-        id: string;
-        content: string;
-    };
-    update(id: string, body: CreatePostDto): {
-        id: string;
-        body: CreatePostDto;
+    index(): Promise<import("@typegoose/typegoose").DocumentType<import("./post.model").Post>[]>;
+    create(createPostDto: CreatePostDto): Promise<{
         success: boolean;
-    };
-    remove(id: string): {
+    }>;
+    detail(id: string): Promise<import("@typegoose/typegoose").DocumentType<import("./post.model").Post>>;
+    update(id: string, updatePostDto: CreatePostDto): Promise<{
         success: boolean;
-    };
+    }>;
+    remove(id: string): Promise<{
+        success: boolean;
+    }>;
 }
 export {};

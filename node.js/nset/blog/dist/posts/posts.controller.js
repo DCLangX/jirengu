@@ -15,41 +15,40 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PostsController = void 0;
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
+const post_model_1 = require("./post.model");
+const class_validator_1 = require("class-validator");
 let CreatePostDto = (() => {
     class CreatePostDto {
     }
     __decorate([
-        swagger_1.ApiProperty({ description: "帖子标题" }),
+        swagger_1.ApiProperty({ description: "帖子标题", example: "帖子标题1" }),
+        class_validator_1.IsNotEmpty({ message: "请填写标题" }),
         __metadata("design:type", String)
     ], CreatePostDto.prototype, "title", void 0);
     __decorate([
-        swagger_1.ApiProperty({ description: "帖子内容" }),
+        swagger_1.ApiProperty({ description: "帖子内容", example: "帖子内容" }),
         __metadata("design:type", String)
     ], CreatePostDto.prototype, "content", void 0);
     return CreatePostDto;
 })();
 let PostsController = (() => {
     let PostsController = class PostsController {
-        index() {
-            return [];
+        async index() {
+            return await post_model_1.PostModel.find();
         }
-        create(body) {
-            return body;
+        async create(createPostDto) {
+            await post_model_1.PostModel.create(createPostDto);
+            return { success: true };
         }
-        detail(id) {
-            return {
-                id,
-                content: "hhhh"
-            };
+        async detail(id) {
+            return await post_model_1.PostModel.findById(id);
         }
-        update(id, body) {
-            return {
-                id,
-                body,
-                success: true
-            };
+        async update(id, updatePostDto) {
+            await post_model_1.PostModel.findByIdAndUpdate(id, updatePostDto);
+            return { success: true };
         }
-        remove(id) {
+        async remove(id) {
+            await post_model_1.PostModel.findByIdAndDelete(id);
             return {
                 success: true
             };
@@ -58,11 +57,11 @@ let PostsController = (() => {
     __decorate([
         common_1.Get(),
         swagger_1.ApiOperation({
-            summary: "显示博客列表"
+            summary: "帖子列表"
         }),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", []),
-        __metadata("design:returntype", void 0)
+        __metadata("design:returntype", Promise)
     ], PostsController.prototype, "index", null);
     __decorate([
         common_1.Post(),
@@ -72,7 +71,7 @@ let PostsController = (() => {
         __param(0, common_1.Body()),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [CreatePostDto]),
-        __metadata("design:returntype", void 0)
+        __metadata("design:returntype", Promise)
     ], PostsController.prototype, "create", null);
     __decorate([
         common_1.Get(":id"),
@@ -82,7 +81,7 @@ let PostsController = (() => {
         __param(0, common_1.Param("id")),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [String]),
-        __metadata("design:returntype", void 0)
+        __metadata("design:returntype", Promise)
     ], PostsController.prototype, "detail", null);
     __decorate([
         common_1.Put(":id"),
@@ -92,7 +91,7 @@ let PostsController = (() => {
         __param(0, common_1.Param("id")), __param(1, common_1.Body()),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [String, CreatePostDto]),
-        __metadata("design:returntype", void 0)
+        __metadata("design:returntype", Promise)
     ], PostsController.prototype, "update", null);
     __decorate([
         common_1.Delete(":id"),
@@ -102,7 +101,7 @@ let PostsController = (() => {
         __param(0, common_1.Param("id")),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [String]),
-        __metadata("design:returntype", void 0)
+        __metadata("design:returntype", Promise)
     ], PostsController.prototype, "remove", null);
     PostsController = __decorate([
         swagger_1.ApiTags("帖子"),
